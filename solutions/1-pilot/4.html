@@ -1,0 +1,25 @@
+<div a>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<style>
+  body {
+    background: #62306d;
+  }
+  div[a] {
+    display: flex;
+    height: 200;
+    margin: 50 42;
+  }
+  div > div {
+    padding: 50;
+    background: #f7ec7d;
+    align-self: flex-end;
+    border-radius: 0 0 50% 50%;
+  }
+  div > div:nth-child(2) {
+    border-radius: 50% 50% 0 0;
+    align-self: flex-start;
+  }
+</style>

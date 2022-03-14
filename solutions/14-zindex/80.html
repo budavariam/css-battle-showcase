@@ -1,0 +1,39 @@
+<div k>
+  <div b></div>
+  <div b></div>
+  <div></div>
+  <div b></div>
+  <div b></div>
+  <div b></div>
+  <div></div>
+</div>
+<style>
+  body {
+    background: #998235;
+  }
+  [k] {
+    margin: 100 102;
+    display: flex;
+    justify-content: center;
+    width: 180;
+    height: 100;
+    background: #191919;
+    border-radius: 10px;
+  }
+  [k] * {
+    width: 20;
+    height: 70;
+    background: white;
+    margin: 25 2.5 5 2.5;
+    border-radius: 5px;
+  }
+  [b]::after {
+    content: '';
+    display: block;
+    width: 15;
+    height: 35;
+    background: #191919;
+    position: relative;
+    left: 15;
+  }
+</style>
