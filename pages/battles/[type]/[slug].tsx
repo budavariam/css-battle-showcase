@@ -67,19 +67,12 @@ const BattlePage = ({ source, frontMatter }: BattlePageProps): JSX.Element => {
           <iframe className="flex-shrink-0" src={solution} width={400} height={300} title="My Solution" />
           <img className="flex-shrink-0" src={`//cssbattle.dev/targets/${numOftem}.png`} title="Target" />
         </div>
-
         {data && <div className="text-slate-600">{data.length} chars</div>}
-        <div className='overflow-hidden w-full border-1 border-black p-5 hljs'>
-          <>
-            {error && 'Failed to load my solution!'}
-            {loading && 'Loading...'}
-            {!loading && !error && data && (
-              <>
-                <CodeHighlight code={data}></CodeHighlight>
-              </>
-            )}
-          </>
-        </div>
+        {error && 'Failed to load my solution!'}
+        {loading && 'Loading...'}
+        {!loading && !error && data && (<div className='overflow-hidden w-full border-1 border-black p-5 hljs'>
+          <CodeHighlight code={data}></CodeHighlight>
+        </div>)}
       </article>
     </Layout>
   );

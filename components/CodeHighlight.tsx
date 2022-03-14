@@ -18,7 +18,6 @@ const CodeHighlight = ({ language = 'html', code = '' }) => {
 
     return (
         <code
-            className="hljs"
             dangerouslySetInnerHTML={{ __html: highlightResult?.value ?? "" }}
         />
     )
