@@ -65,7 +65,7 @@ const BattlePage = ({ source, frontMatter }: BattlePageProps): JSX.Element => {
         </div>
         <div className="flex flex-1 gap-10 justify-between mb-5 overflow-x-auto">
           <iframe className="flex-shrink-0" src={solution} width={400} height={300} title="My Solution" />
-          <img className="flex-shrink-0" src={`//cssbattle.dev/targets/${numOftem}.png`} title="Target" />
+          <img className="flex-shrink-0" src={`//cssbattle.dev/targets/${numOftem}.png`} width={400} height={300} title="Target" />
         </div>
         {data && <div className="text-slate-600">{data.length} chars</div>}
         {error && 'Failed to load my solution!'}
