@@ -1,0 +1,33 @@
+<body bgcolor="191919">
+  <p a></p>
+  <p b></p>
+  <p></p>
+  <p>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      p {
+        margin: 23 1 0 1;
+        width: 80;
+        height: 80;
+        box-sizing: border-box;
+        border: 20px solid #8f8f8f;
+        border-radius: 50%;
+      }
+      p[a] {
+        border: 20px solid #714b67;
+      }
+      p[b]:after {
+        content: '';
+        display: block;
+        margin: -40 40;
+        padding: 20 0;
+        border: 10px solid #8f8f8f;
+        border-radius: 10px;
+      }
+    </style>
+  </p>
+</body>

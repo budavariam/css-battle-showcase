@@ -1,0 +1,89 @@
+<div class="u">
+  <div class="b b2"></div>
+  <div class="b b1"></div>
+  <div class="n"></div>
+  <div class="h"></div>
+</div>
+<style>
+  .u {
+    height: 100%;
+    margin-left: 45px;
+    display: flex;
+    align-items: center;
+  }
+  body {
+    background-color: #f3ac3c;
+    margin: 0;
+  }
+  .n {
+    display: inline-block;
+    z-index: -1;
+    background-color: #1a4341;
+    height: 20px;
+    width: 110px;
+    margin: -5px;
+  }
+  .h {
+    background-color: #998235;
+    border-radius: 10px;
+    height: 30px;
+    width: 40px;
+  }
+  .h::before,
+  .h::after {
+    background-color: #1a4341;
+    height: 4px;
+    display: block;
+    content: '';
+    width: 20px;
+    border-radius: 2px;
+    margin: 8px 0 0px 10px;
+  }
+  .h.h::after {
+    margin-top: 6px;
+  }
+  .b {
+    background-color: #998235;
+    border-radius: 50%;
+  }
+  .b1 {
+    width: 100px;
+    height: 100px;
+  }
+  .b2 {
+    width: 120px;
+    height: 120px;
+    margin-right: -50px;
+  }
+  .b2::before {
+    content: '';
+    display: block;
+    position: relative;
+    margin: 20px 40px;
+    top: 20px;
+    background-color: #1a4341;
+    border-radius: 5px;
+    height: 40px;
+    width: 10px;
+  }
+  .b1::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 25px;
+    border-radius: 50%;
+    background-color: #f3ac3c;
+  }
+  .b1::after {
+    content: '';
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 30px;
+    border-radius: 50%;
+    background-color: #1a4341;
+  }
+</style>
