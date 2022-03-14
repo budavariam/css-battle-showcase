@@ -1,6 +1,4 @@
-import { format, parseISO } from 'date-fns';
 import { GetStaticProps } from 'next';
-import Link from 'next/link';
 import React from 'react';
 import Layout from '../components/Layout';
 import { getAllPosts } from '../lib/api';
@@ -10,7 +8,7 @@ type IndexProps = {
   posts: PostType[];
 };
 
-export const Index = ({ posts }: IndexProps): JSX.Element => {
+export const Index = ({ posts: _posts }: IndexProps): JSX.Element => {
   return (
     <Layout>
       <h1>Hi!</h1>

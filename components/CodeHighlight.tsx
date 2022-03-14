@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import hljs, { AutoHighlightResult } from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);

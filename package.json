@@ -13,6 +13,12 @@
     "test": "jest",
     "test-all": "npm run lint && npm run type-check && npm run test"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run type-check"
+    }
+  },
   "lint-staged": {
     "*.@(ts|tsx)": [
       "npm run lint",
