@@ -20,6 +20,7 @@ const Layout = ({ children, customMeta }: LayoutProps): JSX.Element => {
         <BattleNavigation />
         <div className="max-w-5xl px-8 py-4 overflow-auto">{children}</div>
       </main>
+      <footer className="text-center fixed bottom-0 left-0 right-0 text-slate-700 bg-gray-50 dark:bg-gray-800">Mátyás Budavári - <a href="https://budavariam.github.io/">blog</a></footer>
     </div>
   );
 };
