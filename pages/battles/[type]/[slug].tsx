@@ -66,17 +66,17 @@ const BattlePage = ({ source, frontMatter }: BattlePageProps): JSX.Element => {
           <MDXRemote {...source} components={components} />
         </div>
         <div className="flex flex-1 gap-10 justify-between mb-5 overflow-x-auto">
-          <iframe className="flex-shrink-0" src={solution} width={400} height={300} title="My Solution"/>
-          <img className="flex-shrink-0" src={`//cssbattle.dev/targets/${numOftem}.png`}  title="Target" />
+          <iframe className="flex-shrink-0" src={solution} width={400} height={300} title="My Solution" />
+          <img className="flex-shrink-0" src={`//cssbattle.dev/targets/${numOftem}.png`} title="Target" />
         </div>
 
+        {data && <div className="text-slate-600">{data.length} chars</div>}
         <div className='overflow-hidden w-full border-1 border-black p-5' style={{ background: "#272822" }}>
           <>
             {error && 'Failed to load my solution!'}
             {loading && 'Loading...'}
             {!loading && !error && data && (
               <>
-                <div className="text-slate-600">{data.length} chars</div>
                 <CodeHighlight code={data}></CodeHighlight>
               </>
             )}

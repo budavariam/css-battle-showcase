@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import ThemeSwitch from "./ThemeSwitch";
 
 const menus = process.env.menu as unknown as { link: string, name: string, children: { name: string, link: string }[] }[]
 
@@ -39,6 +40,7 @@ const BattleNavigation = () => {
                     })}
                 </ul>
             </div>
+            <ThemeSwitch />
         </aside>
     );
 }
