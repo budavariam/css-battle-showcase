@@ -1,4 +1,5 @@
 import { useTheme } from 'next-themes';
+import Head from 'next/head';
 import React from 'react';
 
 /**
@@ -21,15 +22,19 @@ const ThemeSwitch = (): JSX.Element => {
   const color = isDark ? '#fff' : '#000';
   const maskColor = isDark ? '#000' : '#fff';
   return (
-    <button
-      className="theme-button fixed right-0 top-0 z-10"
-      type="button"
-      aria-label="Toggle Dark Mode"
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-    >
-      <div className="moon-or-sun" />
-      <div className="moon-mask" />
-      <style jsx>{`
+    <>
+      <Head>
+        <link rel="stylesheet" href={`${process.env.basePath}/highlight-theme/${theme === 'dark' ? 'monokai' : 'foundation'}.css`} />
+      </Head>
+      <button
+        className="theme-button fixed right-0 top-0 z-10"
+        type="button"
+        aria-label="Toggle Dark Mode"
+        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      >
+        <div className="moon-or-sun" />
+        <div className="moon-mask" />
+        <style jsx>{`
         .theme-button {
           opacity: 0.5;
           border-radius: 5px;
@@ -98,7 +103,8 @@ const ThemeSwitch = (): JSX.Element => {
           transition: transform 0.45s ease;
         }
       `}</style>
-    </button>
+      </button>
+    </>
   );
 };
 

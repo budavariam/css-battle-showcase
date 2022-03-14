@@ -69,7 +69,7 @@ const BattlePage = ({ source, frontMatter }: BattlePageProps): JSX.Element => {
         </div>
 
         {data && <div className="text-slate-600">{data.length} chars</div>}
-        <div className='overflow-hidden w-full border-1 border-black p-5' style={{ background: "#272822" }}>
+        <div className='overflow-hidden w-full border-1 border-black p-5 hljs'>
           <>
             {error && 'Failed to load my solution!'}
             {loading && 'Loading...'}

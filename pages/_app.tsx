@@ -2,7 +2,6 @@ import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
 import React from 'react';
 import '../styles/globals.css';
-import 'highlight.js/styles/monokai.css';
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
