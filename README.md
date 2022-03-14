@@ -1,6 +1,6 @@
 # CSS Battle Attempts
 
-This repo is a showcase of my CSS Battle solutions, that you can see live on [Github Pages](https://budavariam.github.io/cssbattle-showcase)
+This repo is a showcase of my CSS Battle solutions, that you can see live on [Github Pages](https://budavariam.github.io/css-battle-showcase/)
 
 I wrote a post about them on [my blog](https://budavariam.github.io/posts/2021/03/14/css-battle).
 
@@ -13,3 +13,8 @@ I wrote a post about them on [my blog](https://budavariam.github.io/posts/2021/0
 npm install
 npm start
 ```
+
+## TechStack docs
+
+- [NextJS](https://nextjs.org/docs/getting-started)
+- [TailwindCSS](https://tailwindcss.com/docs)

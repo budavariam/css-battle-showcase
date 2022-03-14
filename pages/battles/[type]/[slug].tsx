@@ -38,7 +38,7 @@ const BattlePage = ({ source, frontMatter }: BattlePageProps): JSX.Element => {
   const { type, slug } = router.query
   const numOftem = slug.toString().split("-")[0]
 
-  const solution = `/solutions/${type}/${numOftem}.html`
+  const solution = `${process.env.basePath}/solutions/${type}/${numOftem}.html`
 
   const options = {} // these options accept all native `fetch` options
   // the last argument below [] means it will fire onMount (GET by default)
