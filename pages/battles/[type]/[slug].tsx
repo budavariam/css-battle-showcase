@@ -6,7 +6,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 import path from 'path';
 import React from 'react';
@@ -26,7 +25,6 @@ import { useFetch } from 'use-http';
 // here.
 const components = {
   Head,
-  Image,
   Link,
 };
 
