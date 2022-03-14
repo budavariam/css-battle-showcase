@@ -7,7 +7,7 @@ const menus = process.env.menu as unknown as { link: string, name: string, child
 const BattleNavigation = () => {
     const [opened, setOpened] = useState<string>("")
     return (
-        <aside className="flex-shrink-0 w-64 overflow-auto" aria-label="Sidebar">
+        <aside className="flex-shrink-0 md:w-64 overflow-auto" aria-label="Sidebar">
             <div className="h-full overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
                 <ul className="space-y-2">
                     <li>

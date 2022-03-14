@@ -70,7 +70,7 @@ const BattlePage = ({ source, frontMatter }: BattlePageProps): JSX.Element => {
         {data && <div className="text-slate-600">{data.length} chars</div>}
         {error && 'Failed to load my solution!'}
         {loading && 'Loading...'}
-        {!loading && !error && data && (<div className='overflow-hidden w-full border-1 border-black p-5 hljs'>
+        {!loading && !error && data && (<div className='overflow-auto w-full border-1 border-black p-5 hljs'>
           <CodeHighlight code={data}></CodeHighlight>
         </div>)}
       </article>
