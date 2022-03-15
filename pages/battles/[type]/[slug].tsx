@@ -16,8 +16,6 @@ import CodeHighlight from '../../../components/CodeHighlight';
 import { MetaProps } from '../../../types/layout';
 import { BattleType } from '../../../types/battle';
 import { BATTLE_PATH } from '../../../utils/battleUtils';
-import { useRouter } from 'next/router';
-import { useFetch } from 'use-http';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -31,19 +29,12 @@ const components = {
 type BattlePageProps = {
   source: MDXRemoteSerializeResult;
   frontMatter: BattleType;
+  numOfItem: number,
+  solution: string,
+  solutionPath: string,
 };
 
-const BattlePage = ({ source, frontMatter }: BattlePageProps): JSX.Element => {
-  const router = useRouter()
-  const { type, slug } = router.query
-  const numOftem = slug.toString().split("-")[0]
-
-  const solution = `${process.env.basePath}/solutions/${type}/${numOftem}.html`
-
-  const options = {} // these options accept all native `fetch` options
-  // the last argument below [] means it will fire onMount (GET by default)
-  const { loading, error, data = [] } = useFetch(solution, options, [solution])
-
+const BattlePage = ({ source, frontMatter, solution, solutionPath, numOfItem }: BattlePageProps): JSX.Element => {
   const customMeta: MetaProps = {
     title: `${frontMatter.title} - Mátyás Budavári`,
     description: frontMatter.description,
@@ -64,25 +55,30 @@ const BattlePage = ({ source, frontMatter }: BattlePageProps): JSX.Element => {
           <MDXRemote {...source} components={components} />
         </div>
         <div className="flex flex-1 gap-10 justify-between mb-5 overflow-x-auto">
-          <iframe className="flex-shrink-0" src={solution} width={400} height={300} title="My Solution" />
-          <img className="flex-shrink-0" src={`//cssbattle.dev/targets/${numOftem}.png`} width={400} height={300} title="Target" />
+          {/* NOTE: could use string with srcDoc, but my browser failed to render */}
+          <iframe className="flex-shrink-0" src={solutionPath} width={400} height={300} title="My Solution" />
+          <img className="flex-shrink-0" src={`//cssbattle.dev/targets/${numOfItem}.png`} width={400} height={300} title="Target" />
         </div>
-        {data && <div className="text-slate-600">{data.length} chars</div>}
-        {error && 'Failed to load my solution!'}
-        {loading && 'Loading...'}
-        {!loading && !error && data && (<div className='overflow-auto w-full border-1 border-black p-5 hljs'>
-          <CodeHighlight code={data}></CodeHighlight>
-        </div>)}
+        <div className="text-slate-600">{solution.length} chars</div>
+        <div className='overflow-auto w-full border-1 border-black p-5 hljs'>
+          <CodeHighlight code={solution}></CodeHighlight>
+        </div>
       </article>
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const category = params.type as unknown as string
-  const postFilePath = path.join(BATTLE_PATH, category, `${params.slug}.mdx`);
+  const slug = params.slug as unknown as string
+  const type = params.type as unknown as string
+  const postFilePath = path.join(BATTLE_PATH, type, `${slug}.mdx`);
   const source = fs.readFileSync(postFilePath);
 
+  const numOfItem = slug.toString().split("-")[0]
+  const solutionBuildPath = path.join(process.cwd(), "public", "solutions", type, `${numOfItem}.html`);
+  const solution = fs.readFileSync(solutionBuildPath);
+  const solutionPath = path.join(process.env.basePath, "solutions", type, `${numOfItem}.html`);
+  
   const { content, data } = matter(source);
 
   const mdxSource = await serialize(content, {
@@ -98,6 +94,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       source: mdxSource,
       frontMatter: data,
+      solution: solution.toString(),
+      solutionPath,
+      numOfItem,
     },
   };
 };
