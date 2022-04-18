@@ -11,8 +11,24 @@ I wrote a post about them on [my blog](https://budavariam.github.io/posts/2021/0
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
+
+## Add new solution
+
+1. Create an `.mdx` file under `_battles/AAA/N-name` using the following template:
+
+   ```mdx
+   ---
+   title: Title to show
+   description: Description
+   date: '2022-04-18'
+   ---
+
+   Add your thoughts here.
+   ```
+
+1. Add the solution under `public/solutions/AAA/N.html`
 
 ## TechStack docs
 
