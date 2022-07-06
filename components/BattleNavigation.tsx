@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import ThemeSwitch from "./ThemeSwitch";
 
-const menus = process.env.menu as unknown as { link: string, name: string, children: { name: string, link: string }[] }[]
+const menus = process.env.menu as unknown as { link: string, name: string, children: { name: string, link: string, title: string }[] }[]
 
 const BattleNavigation = () => {
     const [opened, setOpened] = useState<string>("")
@@ -31,7 +31,7 @@ const BattleNavigation = () => {
                                     const link = `/battles/${battle.link}/${item.name}`
                                     return <li key={link}><Link href={`/battles/[type]/[slug]`} as={link}>
                                         <a className="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                                            {item.name.split("-").join(" - ")}
+                                            {item.title}
                                         </a>
                                     </Link></li>
                                 })}

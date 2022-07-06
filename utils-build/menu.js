@@ -20,9 +20,19 @@ module.exports = {
                     return stat.isFile() && /^\d.*mdx?$/.test(file);
                 })
                 .map((children) => {
+                    const filePath = pagePath + folder + path.sep + children
+                    const data = fs.readFileSync(filePath, { encoding: 'utf8', flag: 'r' })
+
+                    const nameWithoutExtension = children.split('.').slice(0, -1).join('.')
+                    const readFrontMatterTitle = data.match(/title: (.*)/)
+                    const title = (readFrontMatterTitle && readFrontMatterTitle.length)
+                        ? readFrontMatterTitle[1]
+                        : nameWithoutExtension
+                    // console.log("Names", nameWithoutExtension, title)
                     return {
-                        link: pagePath + folder + path.sep + children,
-                        name: children.split('.').slice(0, -1).join('.'),
+                        link: filePath,
+                        name: nameWithoutExtension,
+                        title: title,
                     }
                 });
             return files
