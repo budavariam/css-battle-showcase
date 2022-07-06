@@ -18,6 +18,7 @@ export const Index = ({ posts: _posts }: IndexProps): JSX.Element => {
         in a scrollable container.
         On the bottom of the page the solution in a syntax highlighted box with the number of characters.
       </p>
+      <p>You can read some of my CSSBattle code golf tips on <a href="https://budavariam.github.io/posts/2022/03/14/css-battle-showcase/?utm_source=cssbattleshowcase&utm_medium=referral&utm_campaign=cssbattle">my blog</a>.</p>
       <p>Happy browsing!</p>
     </Layout>
   );
