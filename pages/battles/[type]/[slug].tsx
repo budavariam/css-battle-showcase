@@ -35,10 +35,13 @@ type BattlePageProps = {
 };
 
 const BattlePage = ({ source, frontMatter, solution, solutionPath, numOfItem }: BattlePageProps): JSX.Element => {
+  const originalImage = `https://cssbattle.dev/targets/${numOfItem}.png`
   const customMeta: MetaProps = {
     title: `${frontMatter.title} - Mátyás Budavári`,
     description: frontMatter.description,
-    image: `${WEBSITE_HOST_URL}${frontMatter.image}`,
+    image: frontMatter.image
+      ? `${WEBSITE_HOST_URL}${frontMatter.image}`
+      : originalImage,
     date: frontMatter.date,
     type: 'article',
   };
@@ -54,7 +57,7 @@ const BattlePage = ({ source, frontMatter, solution, solutionPath, numOfItem }: 
         <div className="flex flex-1 gap-10 justify-between mb-5 overflow-x-auto">
           {/* NOTE: could use string with srcDoc, but my browser failed to render */}
           <iframe className="flex-shrink-0" src={solutionPath} width={400} height={300} title="My Solution" />
-          <img className="flex-shrink-0" src={`//cssbattle.dev/targets/${numOfItem}.png`} width={400} height={300} title="Target" />
+          <img className="flex-shrink-0" src={originalImage} width={400} height={300} title="Target" />
         </div>
         <div className="text-slate-600">{solution.length} chars</div>
         <div className='overflow-auto w-full border-1 border-black p-5 mb-5 hljs'>
@@ -78,7 +81,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const solutionBuildPath = path.join(process.cwd(), "public", "solutions", type, `${numOfItem}.html`);
   const solution = fs.readFileSync(solutionBuildPath);
   const solutionPath = path.join(process.env.basePath, "solutions", type, `${numOfItem}.html`);
-  
+
   const { content, data } = matter(source);
 
   const mdxSource = await serialize(content, {
