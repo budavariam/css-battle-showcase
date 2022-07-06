@@ -57,7 +57,7 @@ const BattlePage = ({ source, frontMatter, solution, solutionPath, numOfItem }: 
         <div className="flex flex-1 gap-10 justify-between mb-5 overflow-x-auto">
           {/* NOTE: could use string with srcDoc, but my browser failed to render */}
           <iframe className="flex-shrink-0" src={solutionPath} width={400} height={300} title="My Solution" />
-          <img className="flex-shrink-0" src={originalImage} width={400} height={300} title="Target" />
+          <img className="flex-shrink-0 min-w-min" src={originalImage} width={400} height={300} title="Target" />
         </div>
         <div className="text-slate-600">{solution.length} chars</div>
         <div className='overflow-auto w-full border-1 border-black p-5 mb-5 hljs'>
