@@ -52,7 +52,7 @@ const BattlePage = ({ source, frontMatter, solution, solutionPath, numOfItem }: 
           {frontMatter.title}
         </h1>
         <p className="mb-3 text-sm text-gray-500 dark:text-gray-400">
-          {format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}
+          I solved it on {format(parseISO(frontMatter.date), 'MMMM d, yyyy')}. You can try to beat my record on <a href={`https://cssbattle.dev/play/${numOfItem}`} target="_blank">CSSBattle</a>!
         </p>
         <div className="flex flex-1 gap-10 justify-between mb-5 overflow-x-auto">
           {/* NOTE: could use string with srcDoc, but my browser failed to render */}
