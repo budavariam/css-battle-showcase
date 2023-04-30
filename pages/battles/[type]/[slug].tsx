@@ -78,7 +78,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const source = fs.readFileSync(postFilePath);
 
   const numOfItem = slug.toString().split("-")[0]
-  const solutionBuildPath = path.join(process.cwd(), "public", "solutions", type, `${numOfItem}.html`);
+  const solutionBuildPath = path.join(process.cwd(), "_battles", type, `${numOfItem}.html`);
   const solution = fs.readFileSync(solutionBuildPath);
   const solutionPath = path.join(process.env.basePath, "solutions", type, `${numOfItem}.html`);
 

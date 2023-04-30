@@ -13,12 +13,6 @@
     "test": "jest",
     "test-all": "npm run lint && npm run type-check && npm run test"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn run type-check"
-    }
-  },
   "lint-staged": {
     "*.@(ts|tsx)": [
       "npm run lint",
@@ -28,15 +22,16 @@
   "dependencies": {
     "@babel/core": ">=7.0.0 <8.0.0",
     "@tailwindcss/typography": "^0.4.1",
+    "copy-webpack-plugin": "^11.0.0",
     "date-fns": "^2.19.0",
     "gray-matter": "^4.0.2",
     "highlight.js": "^11.5.0",
     "mdx-prism": "^0.3.3",
-    "next": "^11.0.1",
-    "next-mdx-remote": "^3.0.2",
+    "next": "^13.3.2",
+    "next-mdx-remote": "^4.4.1",
     "next-themes": "^0.0.15",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rehype-autolink-headings": "^5.0.1",
     "rehype-slug": "^4.0.1",
     "remark-code-titles": "^0.1.1",
