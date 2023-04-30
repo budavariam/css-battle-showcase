@@ -33,4 +33,4 @@ yarn-error.log*
 # vercel
 .vercel
 
-# /public/solutions/*
+/public/solutions/*
