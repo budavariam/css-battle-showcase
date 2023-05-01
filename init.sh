@@ -9,7 +9,7 @@ TODAY=$(date +%F)
 
 # code
 
-MDX_FILE_PATH="$(npm root)/../_battles/${PROJ_ID}/${BATTLE_ID}-${BATTLE_NAME}.mdx"
+MDX_FILE_PATH="$(npm root)/../_battles/${PROJ_ID}/${BATTLE_ID}.mdx"
 echo "creating ${MDX_FILE_PATH}"
 mkdir -p "$(basename "${MDX_FILE_PATH}")"
 cat >"$MDX_FILE_PATH" <<EOF
@@ -20,7 +20,7 @@ date: '${TODAY}'
 ---
 EOF
 
-SOLUTION_FILE_PATH="$(npm root)/../public/solutions/${PROJ_ID}/${BATTLE_ID}.html"
+SOLUTION_FILE_PATH="$(npm root)/../_battles/${PROJ_ID}/${BATTLE_ID}.html"
 echo "creating ${SOLUTION_FILE_PATH}"
 mkdir -p "$(basename "${SOLUTION_FILE_PATH}")"
 touch "${SOLUTION_FILE_PATH}"
