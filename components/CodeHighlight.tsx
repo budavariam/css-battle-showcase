@@ -3,7 +3,7 @@ import hljs, { AutoHighlightResult } from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
 
-const CodeHighlight = ({ language = 'html', code = '' }) => {
+const CodeHighlight = ({ language = 'html', code = '' }: { language?: string, code?: string }): JSX.Element => {
     const languageSubset = hljs.getLanguage(language)
         ? [language]
         : null

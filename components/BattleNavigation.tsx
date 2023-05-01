@@ -4,7 +4,7 @@ import ThemeSwitch from "./ThemeSwitch";
 
 const menus = process.env.menu as unknown as { link: string, name: string, children: { name: string, link: string, title: string }[] }[]
 
-const BattleNavigation = () => {
+const BattleNavigation = (): JSX.Element => {
     const [opened, setOpened] = useState<string>("")
     return (
         <aside className="flex-shrink-0 md:w-64 overflow-auto" aria-label="Sidebar">

@@ -34,7 +34,7 @@ const ThemeSwitch = (): JSX.Element => {
       >
         <div className="moon-or-sun" />
         <div className="moon-mask" />
-        <style jsx>{`
+        <style>{`
         .theme-button {
           opacity: 0.5;
           border-radius: 5px;
